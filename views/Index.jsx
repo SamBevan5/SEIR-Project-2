@@ -1,42 +1,36 @@
 const React = require('react');
-const AppLayout = require('./AppLayout.jsx');
+const Layout = require('./components/Layout');
 
 class Index extends React.Component {
     render() {
-        const logout = (
-            <form action="/sessions/?_method=delete" method="post">
-                <input type="submit" value="Logout" />
-            </form>
-        );
-
-        const { logs } = this.props;
+        const { jobs } = this.props;
         return (
-            <AppLayout title="INDEX PAGE">
+            <Layout title="INDEX PAGE">
                 <div>
-                    <h1>Logs Index Page</h1>
-                    <h2>{this.props.username}</h2>
+                    <h1>Your Job Journal</h1>
                     <nav>
-                        <a href="/logs/new">Create a New Log</a>
+                        <a href="/jobs/new">Add a New Job</a>
                     </nav>
-                    {this.props.username ? logout : ''}
                     <ul>
-                        {logs.map((log, i) => {
-                            console.log(log._id);
+                        {jobs.map((job, i) => {
                             return (
                                 <li>
-                                    <a href={`/logs/${log._id}`}>
-                                        {log.name}
+                                    <a href={`/jobs/${job._id}`}>
+                                        {job.company}
                                     </a>{' '}<br></br>
-                                    {log.entry} <br></br>
-                                    {log.shipIsBroken
-                                        ? `It is broken`
-                                        : `It is in perfect condition`}
+                                    {job.applicationComplete
+                                        ? `It is not complete`
+                                        : `It is complete`}
                                     <br />
-                                    <a href={`/logs/edit/${log._id}`}>
-                                        EDIT {log.name}
+                                    {job.interviewDate} <br></br>
+                                    {job.interviewer} <br></br>
+                                    {job.notes} <br></br>
+
+                                    <a href={`/jobs/edit/${job._id}`}>
+                                        EDIT {job.company}
                                     </a>
                                     <form
-                                        action={`/logs/${log._id}?_method=DELETE`}
+                                        action={`/jobs/${job._id}?_method=DELETE`}
                                         method="post"
                                     >
                                         <input type="submit" value="delete" />
@@ -46,7 +40,7 @@ class Index extends React.Component {
                         })}
                     </ul>
                 </div>
-            </AppLayout>
+            </Layout>
         );
     }
 }

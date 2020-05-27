@@ -2,27 +2,29 @@ const React = require('react');
 
 class Edit extends React.Component {
     render() {
-        const { log } = this.props;
+        const { job } = this.props;
         return (
             <div>
-                <h1>Edit Logs page</h1>
+                <h1>Edit Job Info</h1>
                 <form
-                    action={`/logs/edit/${log._id}?_method=put`}
+                    action={`/jobs/edit/${job._id}?_method=put`}
                     method="POST"
                 >
-                    Name: <input type="text" name="name" value={log.name} />
-                    <br />
-                    Entry:{' '}
-                    <input type="text" name="entry" value={log.entry} />
-                    <br />
-                    Ship is Broken?:{' '}
+                    Company: <input type="text" name="company" value={job.company} />
+                    Application Complete?:{' '}
                     <input
                         type="checkbox"
-                        checked={log.shipIsBroken ? 'checked' : ''}
-                        name="shipIsBroken"
+                        checked={job.applicationComplete ? 'checked' : ''}
+                        name="applicationComplete"
                     />
                     <br />
-                    <input type="submit" name="" value="Edit Log" />
+                    Interview Date:<input type="text" name="interviewDate" value={job.interviewDate} />
+                    <br />
+                    Interviewer:<input type="text" name="interviewer" value={job.interviewer} />
+                    <br />
+                    Notes:<input type="text" name="notes" value={job.notes} />
+                    <br />
+                    <input type="submit" name="" value="Edit Job" />
                 </form>
             </div>
         );
