@@ -7,7 +7,16 @@ const Job = require('../models/jobs');
 //ROUTES
 
 // Index
+
 jobController.get('/', (req, res) => {
+    Job.find({}, (error, allJobs) => {
+        res.render('Home', {
+            jobs: allJobs
+        });
+    });
+});
+
+jobController.get('/yourjobs', (req, res) => {
     Job.find({}, (error, allJobs) => {
         res.render('Index', {
             jobs: allJobs
@@ -16,13 +25,13 @@ jobController.get('/', (req, res) => {
 });
 
 // New
-jobController.get('/new', (req, res) => {
+jobController.get('/yourjobs/new', (req, res) => {
     res.render('New');
 });
 
 
 // Show
-jobController.get('/:id', (req, res) => {
+jobController.get('/yourjobs/:id', (req, res) => {
     Job.findById(req.params.id, (error, foundJob) => {
         res.render('Show', {
             job: foundJob,
@@ -31,14 +40,14 @@ jobController.get('/:id', (req, res) => {
 });
 
 //EDIT
-jobController.get('/edit/:id', (req, res) => {
+jobController.get('/yourjobs/edit/:id', (req, res) => {
     Job.findById(req.params.id, (error, foundJob) => {
         res.render('Edit', { job: foundJob });
     });
 })
 
 // Create
-jobController.post('/', (req, res) => {
+jobController.post('/yourjobs', (req, res) => {
     if (req.body.applicationComplete === 'on') {
         req.body.applicationComplete = true;
     } else {
@@ -51,14 +60,14 @@ jobController.post('/', (req, res) => {
     }
     
     Job.create(req.body, (error, createdJob) => {
-        res.redirect('/jobs');
+        res.redirect('/jobs/yourjobs');
     });
 });
 
 
 
 //UPDATE
-jobController.put('/edit/:id', (req, res) => {
+jobController.put('/yourjobs/edit/:id', (req, res) => {
     if (req.body.applicationComplete === 'on') {
         req.body.applicationComplete = true;
     } else {
@@ -70,14 +79,14 @@ jobController.put('/edit/:id', (req, res) => {
         req.body.isActive = false;
     }
     Job.findByIdAndUpdate(req.params.id, req.body, (error, data) => {
-        res.redirect('/jobs');
+        res.redirect('/jobs/yourjobs');
     });
 });
 
 //DELETE ROUTE
-jobController.delete('/:id', (req, res) => {
+jobController.delete('/yourjobs/:id', (req, res) => {
     Job.findByIdAndRemove(req.params.id, (err, data) => {
-        res.redirect('/jobs');
+        res.redirect('/jobs/yourjobs');
     });
 });
 

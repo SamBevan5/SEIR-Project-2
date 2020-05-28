@@ -9,9 +9,9 @@ class Index extends React.Component {
                 <h1 className="indexH1">Your Jobs:</h1>
                 <div className="switch">
                     <div className="switches">
-                        <a href="/jobs/new"><img id="add" src="./images/add_icon.svg" alt="add_icon"/></a>
-                        <div class="switches-content">
-                            <p>Click to add another job you're interested in</p>
+                        <a href="/jobs/yourjobs/new"><img id="add" src="../images/add_icon.svg" alt="add_icon"/></a>
+                        <div className="switches-content">
+                            <p>Click to add another job you're interested in </p>
                         </div> 
                     </div>
                 </div>
@@ -21,24 +21,24 @@ class Index extends React.Component {
                                 <div className="jobBlock" id={`block${i}`}>
                                     <div className="blockIcons">
                                         <div id="icons">
-                                            <a href={`/jobs/edit/${job._id}`}>
-                                                <img className="editImg" src="./images/edit_icon_4.png" alt=""/>
+                                            <a href={`/jobs/yourjobs/edit/${job._id}`}>
+                                                <img className="editImg" src="../images/edit_icon_4.png" alt=""/>
                                             </a>
                                             <form
-                                                action={`/jobs/${job._id}?_method=DELETE`}
+                                                action={`/jobs/yourjobs/${job._id}?_method=DELETE`}
                                                 method="post"
                                             >
-                                                <input type="image" src="./images/delete_icon.png" alt="Submit feedback"/>
+                                                <input type="image" src="../images/delete_icon.png" alt="Submit feedback"/>
                                             </form>
                                             <div id="status">{job.isActive
-                                            ? <img src="./images/active.png" alt="active"/>
-                                            : <img src="./images/inactive.png" alt="inactive"/>}   
+                                            ? <img src="../images/active.png" alt="active"/>
+                                            : <img src="../images/inactive.png" alt="inactive"/>}   
                                             </div>
                                         </div>
                                     </div>
                                     <div className="jobBlockInfo">
                                         <div className="jobBlockImage">
-                                            <a href={`/jobs/${job._id}`}><img src={job.img} alt="company-logo"/></a>
+                                            <a href={`/jobs/yourjobs/${job._id}`}><img src={job.img} alt="company-logo"/></a>
                                         </div>
                                         <div className="jobDate">
                                             <h2>{job.company}</h2>

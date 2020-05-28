@@ -9,7 +9,7 @@ class New extends React.Component {
             <h1>New Job</h1>
           </div>
           <div className="new-main-container">
-            <form action="/jobs" method="POST">
+            <form action="/jobs/yourjobs" method="POST">
                   Company: <input type="text" name="company" /><br/>
                   Application Status (Check if Active): <input type="checkbox" name="isActive"/><br/>
                   Application Complete (Check if Complete): <input type="checkbox" name="applicationComplete"/><br/>

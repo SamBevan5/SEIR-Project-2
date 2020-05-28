@@ -10,7 +10,7 @@ class Edit extends React.Component {
                     <h1>Edit {job.company} Listing</h1>
                 </div>
                 <div className="edit-main-container">
-                    <form action={`/jobs/edit/${job._id}?_method=put`}
+                    <form action={`/jobs/yourjobs/edit/${job._id}?_method=put`}
                     method="POST"
                     >
                         Company: <input type="text" name="company" value={job.company} /> <br />
