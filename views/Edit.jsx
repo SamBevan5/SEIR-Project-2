@@ -10,7 +10,7 @@ class Edit extends React.Component {
                     <h1>Edit {job.company} Listing</h1>
                 </div>
                 <div className="edit-main-container">
-                <div className="show-footer">
+                    <div className="show-footer">
                         <a id="back" href="/jobs/yourjobs">Back</a>
                     </div>
                     <form action={`/jobs/yourjobs/edit/${job._id}?_method=put`}
@@ -20,6 +20,9 @@ class Edit extends React.Component {
                         Application Complete?:{' '}
                         <input type="checkbox" checked={job.applicationComplete ? 'checked' : ''}
                         name="applicationComplete"/><br />
+                        Status (Check for Active):{' '}
+                        <input type="checkbox" checked={job.isActive ? 'checked' : ''}
+                        name="isActive"/><br />
                         Date Posted:<input type="text" name="interviewDate" value={job.interviewDate} />
                         <br />
                         Hiring Manager:<input type="text" name="interviewer" value={job.interviewer} />
