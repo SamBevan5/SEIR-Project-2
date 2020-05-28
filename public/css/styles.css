@@ -1,0 +1,206 @@
+:root {
+    --main-color: #2e008b;
+    --secondary-color: white;
+    --accent-color: #8cc2fb;
+
+    --main-font: 'Poppins'
+}
+
+* {
+    /* border: 1px solid red; */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    font-family: var(--main-font);
+    box-sizing: border-box;
+    background-color: #f5fafe;
+    
+}
+
+nav {
+    margin: 0;
+    width: 100%;
+    display: flex;
+    background-color: var(--main-color) ;
+    position: fixed;
+    z-index: 2;
+}
+
+.navImg {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.navImg > img {
+    width: 45%;
+    height: 90%;
+}
+
+.navLinks {
+    display: flex;
+    width: 40%;
+    justify-content: space-evenly;
+}
+
+.navLinks > a {
+    align-self: center;
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-family: 'Poppins';
+    font-weight: 500;
+}
+
+.navLinks > a:hover {
+    align-self: center;
+    color: var(--accent-color);
+}
+
+main {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin: 10% auto;
+    align-items: center;
+}
+
+.indexH1 {
+    color: #71b6ff;
+    font-size: 4em;
+}
+
+.allJobs {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.jobBlock {
+    display: flex;
+    background-color: var(--secondary-color);
+    flex-direction: column;
+    /* border: 2px solid var(--main-color); */
+    border-radius: 5px;
+    padding: 0 2% 0 2%;
+    width: 15%;
+    height: 20%;
+    z-index: 1;
+    margin: 2% 2%;
+    -moz-box-shadow: 0 0 6px #ccc;
+    -webkit-box-shadow: 0 0 6px #ccc;
+    box-shadow: 0 0 6px #ccc;
+    
+}
+
+#icons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-left: 2%;
+    margin-top: 3%;
+}
+
+.blockIcons {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.jobBlockInfo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+.jobBlockImage img {
+    height: 20vh;
+    width: 12vw;
+    margin-top: 7%;
+}
+
+.jobBlockImage img:hover {
+    opacity: .5;
+    cursor: pointer;
+}
+
+.jobDate > h2 {
+    color: var(--main-color);
+}
+
+.editImg {
+    width: 15px;
+    height: 15px;
+    filter: invert(17%) sepia(64%) saturate(6190%) hue-rotate(265deg) brightness(53%) contrast(146%);
+    border: none;
+    margin: 0 5px;
+}
+
+.editImg:hover {
+    opacity: .5;
+}
+
+input[type=image] {
+    width: 15px;
+    height: 15px;
+    filter: invert(17%) sepia(64%) saturate(6190%) hue-rotate(265deg) brightness(53%) contrast(146%);
+    border: none;
+}
+input[type=image]:hover {
+    opacity: .5;
+}
+
+
+#status > img {
+    width: 15px;
+    height: 15px;
+    margin-left: 25%;
+}
+
+
+.switch {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: flex-end ;
+    position: relative;
+}
+
+.switches .switches-content {
+    display: none;
+    position: absolute;
+    width: 10vh;
+    font-size: .6em;
+    bottom: 120%;
+    background-color: #fff;
+    padding: .5em;
+    -moz-box-shadow: 0 0 6px #ccc;
+    -webkit-box-shadow: 0 0 6px #ccc;
+    box-shadow: 0 0 6px #ccc;
+  }
+
+#add {
+    width: 40px;
+    height: 40px;
+    filter: invert(17%) sepia(64%) saturate(6190%) hue-rotate(265deg) brightness(53%) contrast(146%);
+
+}
+
+.switches > a:hover {
+    opacity: .5;
+    cursor: pointer;
+}
+
+.switches:hover .switches-content {
+    display: block;
+}
+
+
+

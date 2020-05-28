@@ -5,9 +5,11 @@ const Schema = mongoose.Schema;
 const jobSchema = new Schema({
     company: { type: String, required: true },
     applicationComplete: Boolean,
+    isActive: Boolean,
     interviewDate: { type: String, required: true },
     interviewer: { type: String, required: true },
-    notes: { type: String, required: true }
+    notes: { type: String, required: true },
+    img: String
 }, { timestamps: true });
 
 //  Create Model from our Schema

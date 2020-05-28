@@ -1,6 +1,6 @@
 const React = require('react');
 
-class ShowLayout extends React.Component {
+class OtherLayout extends React.Component {
     render() {
         return (
             <html>
@@ -8,6 +8,12 @@ class ShowLayout extends React.Component {
                     <title>Job Journal</title>
                     <link rel="stylesheet" href="/css/styles2.css"/>
                 </head>
+                <nav>
+                        <img src="/images/JJ_Logo2.png" alt=""/>
+                        <a href="/jobs">Home</a>
+                        <a href="/jobs/new">Add a New Job</a>
+                        <a href="/jobs/about">About</a>
+                </nav>
                 <body>
                     {this.props.children}
                 </body>
@@ -16,4 +22,4 @@ class ShowLayout extends React.Component {
     }
 }
 
-module.exports = ShowLayout;
+module.exports = OtherLayout;

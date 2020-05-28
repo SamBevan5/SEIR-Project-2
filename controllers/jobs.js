@@ -20,6 +20,7 @@ jobController.get('/new', (req, res) => {
     res.render('New');
 });
 
+
 // Show
 jobController.get('/:id', (req, res) => {
     Job.findById(req.params.id, (error, foundJob) => {
@@ -43,11 +44,18 @@ jobController.post('/', (req, res) => {
     } else {
         req.body.applicationComplete = false;
     }
+    if (req.body.isActive === 'on') {
+        req.body.isActive = true;
+    } else {
+        req.body.isActive = false;
+    }
     
     Job.create(req.body, (error, createdJob) => {
         res.redirect('/jobs');
     });
 });
+
+
 
 //UPDATE
 jobController.put('/edit/:id', (req, res) => {
@@ -55,6 +63,11 @@ jobController.put('/edit/:id', (req, res) => {
         req.body.applicationComplete = true;
     } else {
         req.body.applicationComplete = false;
+    }
+    if (req.body.isActive === 'on') {
+        req.body.isActive = true;
+    } else {
+        req.body.isActive = false;
     }
     Job.findByIdAndUpdate(req.params.id, req.body, (error, data) => {
         res.redirect('/jobs');
