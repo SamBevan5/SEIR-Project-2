@@ -1,17 +1,24 @@
 const React = require('react');
+const Layout = require('./components/Layout');
 
 class Show extends React.Component {
     render() {
-        const { company, applicationComplete, interviewDate, interviewer, notes } = this.props.job;
+        const { company, applicationComplete, interviewDate, interviewer, notes, isActive, img } = this.props.job;
         return (
-            <div>
-                <h1> Job Show Page</h1>
-                <p>{company}</p>
-                <p>{applicationComplete ? `It is not` : `It is Complete`}</p>
-                <p>{interviewDate}</p>
-                <p>{interviewer}</p>
-                <p>{notes}</p>
-            </div>
+            <Layout>
+                <div className="main-container">
+                    <div className="show-header">
+                        <h1> {company}</h1>
+                        <img src={img} alt="company-logo"/>
+                    </div>
+                    <p><h3>Date Job was Posted:</h3>{interviewDate}</p>
+                    <h3>Status:</h3><p>{isActive ? <span id="active">{`ACTIVE`}</span> : <span id="inactive">{`INACTIVE`}</span>}</p>
+                    <h3>Application Complete?:</h3><p>{applicationComplete ? <span id="active">{`COMPLETE`}</span> : <span id="inactive">{`INCOMPLETE`}</span>}</p>
+                    <p><h3>Hiring Manager:</h3>{interviewer}</p>
+                    <p><h3>Notes:</h3>{notes}</p>
+                </div>
+
+            </Layout>
         )
     }
 }

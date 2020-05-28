@@ -1,7 +1,7 @@
 :root {
     --main-color: #2e008b;
     --secondary-color: white;
-    --accent-color: #8cc2fb;
+    --accent-color: #71b6ff;
 
     --main-font: 'Poppins'
 }
@@ -69,7 +69,7 @@ main {
 }
 
 .indexH1 {
-    color: #71b6ff;
+    color: var(--accent-color);
     font-size: 4em;
 }
 
@@ -201,6 +201,49 @@ input[type=image]:hover {
 .switches:hover .switches-content {
     display: block;
 }
+
+/* show page css */
+
+.main-container {
+    margin: 0 auto;
+    width: 50%;
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    -moz-box-shadow: 0 0 6px #ccc;
+    -webkit-box-shadow: 0 0 6px #ccc;
+    box-shadow: 0 0 6px #ccc;
+    padding: 1% 5% 5% 5%;
+
+}
+
+.main-container h1 {
+    color: var(--main-color);
+}
+
+.show-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.show-header img {
+    height: 5vh;
+    width: 5vh;
+    align-self: center
+}
+
+.main-container h3 {
+    color: var(--accent-color);
+}
+
+#active {
+    color: rgb(14, 209, 14);
+}
+
+#inactive {
+    color: red;
+}
+
 
 
 
