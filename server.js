@@ -32,7 +32,7 @@ app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
 
 //Controllers
-app.use('/jobs', jobsController);
+app.use('/', jobsController);
 
 
 // listen

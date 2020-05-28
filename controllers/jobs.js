@@ -16,7 +16,7 @@ jobController.get('/', (req, res) => {
     });
 });
 
-jobController.get('/yourjobs', (req, res) => {
+jobController.get('jobs/yourjobs', (req, res) => {
     Job.find({}, (error, allJobs) => {
         res.render('Index', {
             jobs: allJobs
@@ -25,13 +25,13 @@ jobController.get('/yourjobs', (req, res) => {
 });
 
 // New
-jobController.get('/yourjobs/new', (req, res) => {
+jobController.get('jobs/yourjobs/new', (req, res) => {
     res.render('New');
 });
 
 
 // Show
-jobController.get('/yourjobs/:id', (req, res) => {
+jobController.get('jobs/yourjobs/:id', (req, res) => {
     Job.findById(req.params.id, (error, foundJob) => {
         res.render('Show', {
             job: foundJob,
@@ -40,14 +40,14 @@ jobController.get('/yourjobs/:id', (req, res) => {
 });
 
 //EDIT
-jobController.get('/yourjobs/edit/:id', (req, res) => {
+jobController.get('jobs/yourjobs/edit/:id', (req, res) => {
     Job.findById(req.params.id, (error, foundJob) => {
         res.render('Edit', { job: foundJob });
     });
 })
 
 // Create
-jobController.post('/yourjobs', (req, res) => {
+jobController.post('jobs/yourjobs', (req, res) => {
     if (req.body.applicationComplete === 'on') {
         req.body.applicationComplete = true;
     } else {
@@ -60,14 +60,14 @@ jobController.post('/yourjobs', (req, res) => {
     }
     
     Job.create(req.body, (error, createdJob) => {
-        res.redirect('/jobs/yourjobs');
+        res.redirect('jobs/jobs/yourjobs');
     });
 });
 
 
 
 //UPDATE
-jobController.put('/yourjobs/edit/:id', (req, res) => {
+jobController.put('jobs/yourjobs/edit/:id', (req, res) => {
     if (req.body.applicationComplete === 'on') {
         req.body.applicationComplete = true;
     } else {
@@ -84,7 +84,7 @@ jobController.put('/yourjobs/edit/:id', (req, res) => {
 });
 
 //DELETE ROUTE
-jobController.delete('/yourjobs/:id', (req, res) => {
+jobController.delete('jobs/yourjobs/:id', (req, res) => {
     Job.findByIdAndRemove(req.params.id, (err, data) => {
         res.redirect('/jobs/yourjobs');
     });
