@@ -11,10 +11,10 @@ require('dotenv').config();
 const db = mongoose.connection;
 
 
-const MONGODB_URI =  `mongodb://localhost:27017/jobjournal`;
+const MONGODB_URI =  `mongodb://localhost:/jobjournal`;
 
 // Connect to Mongo
-mongoose.connect(MONGODB_URI ,  { useNewUrlParser: true});
+mongoose.connect(MONGODB_URI ,  { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
@@ -32,7 +32,7 @@ app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
 
 //Controllers
-app.use('/', jobsController);
+app.use('/jobs', jobsController);
 
 
 // listen
