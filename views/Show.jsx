@@ -16,6 +16,10 @@ class Show extends React.Component {
                     <h3>Application Complete?:</h3><p>{applicationComplete ? <span id="active">{`COMPLETE`}</span> : <span id="inactive">{`INCOMPLETE`}</span>}</p>
                     <p><h3>Hiring Manager:</h3>{interviewer}</p>
                     <p><h3>Notes:</h3>{notes}</p>
+                    <div className="show-footer">
+                        <a id="back" href="/jobs/yourjobs">Back</a>
+                    </div>
+                    
                 </div>
 
             </Layout>

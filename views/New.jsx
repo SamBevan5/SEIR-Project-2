@@ -9,6 +9,9 @@ class New extends React.Component {
             <h1>New Job</h1>
           </div>
           <div className="new-main-container">
+            <div className="show-footer">
+                <a id="back" href="/jobs/yourjobs">Back</a>
+            </div>
             <form action="/jobs/yourjobs" method="POST">
                   Company: <input type="text" name="company" /><br/>
                   Application Status (Check if Active): <input type="checkbox" name="isActive"/><br/>
