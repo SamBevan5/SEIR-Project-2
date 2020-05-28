@@ -13,15 +13,34 @@ class New extends React.Component {
                 <a id="back" href="/jobs/yourjobs">Back</a>
             </div>
             <form action="/jobs/yourjobs" method="POST">
-                  Company: <input type="text" name="company" /><br/>
-                  Application Status (Check if Active): <input type="checkbox" name="isActive"/><br/>
-                  Application Complete (Check if Complete): <input type="checkbox" name="applicationComplete"/><br/>
-                  Interview Date: <input type="text" name="interviewDate" /><br/>
-                  Hiring Manager: <input type="text" name="interviewer" /><br/>
-                  Company Logo (url): <input type="text" name="img" /><br/>
-                  Notes: <input type="text" name="notes" /><br/>
-                  <input type="submit" name="" value="Create Job Entry"/>
-              </form>
+              <fieldset>
+                  <legend>New Listing</legend>
+                       <label for="company">Company:</label>
+                       <input type="text" name="company" id="company" />
+
+                       <label for="isActive">Status (Check for Active):</label>
+                       <input type="checkbox" name="isActive" id="isActive"/>
+                 
+                       <label for="applicationComplete">Application Complete?</label>
+                       <input type="checkbox" name="applicationComplete" id="applicationComplete"/>
+                 
+
+                       <label for="interviewDate">Date Posted:</label>
+                       <input type="text" name="interviewDate" id="interviewDate"/>
+
+                       <label for="interviewer">Hiring Manager:</label>
+                       <input type="text" name="interviewer" id="interviewer"/>
+
+                       <label for="notes">Notes:</label>
+                       <textarea id="notes"type="text" name="notes"/>
+
+                       <label for="img">Company Logo (url)</label>
+                       <input type="text" name="img" id="img"/>
+
+                       <input type="submit" name="" value="Create Job Entry"/>
+
+              </fieldset>
+            </form>
           </div>
         </Layout>)
     }

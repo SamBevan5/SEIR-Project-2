@@ -28,7 +28,7 @@ class Index extends React.Component {
                                                 action={`/jobs/yourjobs/${job._id}?_method=DELETE`}
                                                 method="post"
                                             >
-                                                <input type="image" src="../images/delete_icon.png" alt="Submit feedback"/>
+                                                <input id="trashcan" type="image" src="../images/delete_icon.png" alt="Submit feedback"/>
                                             </form>
                                             <div id="status">{job.isActive
                                             ? <img src="../images/active.png" alt="active"/>

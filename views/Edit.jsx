@@ -7,7 +7,6 @@ class Edit extends React.Component {
         return (
             <Layout>
                 <div className="edit-page">
-                    <h1>Edit {job.company} Listing</h1>
                 </div>
                 <div className="edit-main-container">
                     <div className="show-footer">
@@ -15,21 +14,33 @@ class Edit extends React.Component {
                     </div>
                     <form action={`/jobs/yourjobs/edit/${job._id}?_method=put`}
                     method="POST"
-                    >
-                        Company: <input type="text" name="company" value={job.company} /> <br />
-                        Application Complete?:{' '}
-                        <input type="checkbox" checked={job.applicationComplete ? 'checked' : ''}
-                        name="applicationComplete"/><br />
-                        Status (Check for Active):{' '}
-                        <input type="checkbox" checked={job.isActive ? 'checked' : ''}
-                        name="isActive"/><br />
-                        Date Posted:<input type="text" name="interviewDate" value={job.interviewDate} />
-                        <br />
-                        Hiring Manager:<input type="text" name="interviewer" value={job.interviewer} />
-                        <br />
-                        Notes:<input type="text" name="notes" value={job.notes} />
-                        <br />
-                        Company Logo (url):<input type="text" name="img" value={job.img} /><br/>
+                    >   <fieldset>
+                   
+                        <legend>Edit {job.company} Listing</legend>
+                            <label for="company">Company:</label>
+                            <input type="text" name="company" value={job.company} id="company"/>
+                      
+                            <label for="applicationComplete">Application Complete?</label>
+                            <input type="checkbox" checked={job.applicationComplete ? 'checked' : ''}name="applicationComplete" id="applicationComplete"/>
+                      
+                            <label for="isActive">Status (Check for Active):</label>
+                            <input id="isActive" type="checkbox" checked={job.isActive ? 'checked' : ''}
+                            name="isActive"/>
+
+                            <label for="interviewDate">Date Posted:</label>
+                            <input id="interviewDate" type="text" name="interviewDate" value={job.interviewDate} />
+
+                            <label for="interviewer">Hiring Manager:</label>
+                            <input id="interviewer" type="text" name="interviewer" value={job.interviewer} />
+
+                            <label for="notes">Notes:</label>
+                            <textarea id="notes"type="text" name="notes" value={job.notes} />
+
+                            <label for="img">Company Logo (url)</label>
+                            <input id="img" type="text" name="img" value={job.img} />
+
+                        </fieldset>
+                        
                         <input type="submit" name="" value="Edit Job" />
                     </form>
                 </div>
